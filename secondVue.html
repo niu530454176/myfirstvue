@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		.red {
+			color: #ff0000;
+		}
+		.blue {
+			color: #0000ff;
+		}
+		.green {
+			color: #00ff00;
+		}
+	</style>
+</head>
+<body>
+<div id="app">
+	<div :class="color" :style="{'font-size': fontSize + 'px'}">文本的颜色现在是{{color}}</div>
+	<button @click="startChange">开始</button>
+	<button @click="stopChange">暂停</button>
+	<button @click="bigChange">增大</button>
+</div>
+<script src="js/vue.js"></script>
+<script>
+	var colors = ['red', 'green', 'blue'];
+	var i = 0;
+	var app = new Vue({
+		el: '#app',
+		data: {
+			intervalId: 0,
+			color: colors[i],
+			fontSize: 20
+		},
+		methods: {
+			startChange: function () {
+				var _this = this;
+				if (_this.intervalId != 0) {
+					return;
+				}
+				_this.intervalId = setInterval(function () {
+					_this.color = colors[i++];
+					if (i >= colors.length) {
+						i = 0
+					}
+				}, 500)
+			},
+			stopChange: function () {
+				console.log('222');
+				var _this = this;
+				clearInterval(_this.intervalId);
+			},
+			bigChange: function () {
+				var _this = this;
+				_this.fontSize++
+			}
+		},
+		mounted: function () {
+			this.startChange()
+		}
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<div id="app">
+	<template>
+		<input type="text" v-model="name" placeholder="清输入用户名">
+		<input type="submit" @click="checkNewShortName">
+		<div v-if="isShow">请输入用户名</div>
+	</template>
+</div>
+<script src="js/vue.js"></script>
+<script>
+	var app = new Vue({
+		el: '#app',
+		data: {
+			name: '',
+			isShow: false
+		},
+		methods: {
+			checkNewShortName: function () {
+				var _this = this;
+				if (_this.name != '' &&(不是重复名字的提取数据自己判断)) {
+					console.log('2');
+					_this.isShow = false;
+				} else {
+					_this.isShow = true;
+				}
+			}
+		}
+	})
+	var str = 'asdfsadf';
+	console.log(str.substr(0, 1));
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<div id="example">
+	<input v-on:keyup="onKeyUp" v-model="currCode">
+	{{charArr}}
+</div>
+<script src="js/vue.js"></script>
+<script>
+	var example = new Vue({
+		el: '#example',
+		data: {
+			currCode: '',
+			charArr: []
+		},
+		methods: {
+			onKeyUp: function (e) {
+				this.charArr.push(String.fromCharCode(e.keyCode));
+				this.currCode = '';
+			},
+			autoClear: function () {
+				var _this = this;
+				setInterval(function () {
+					if (_this.charArr.length) {
+						_this.charArr.shift();
+					}
+				}, 300);
+			}
+		},
+		mounted: function () {
+			this.autoClear();
+		}
+	});
+</script>
+</body>
+</html>

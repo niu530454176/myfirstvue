@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<ul id="example-2">
+	<template v-for="(item, index) in list">
+		<li>
+			<div v-show="">click me</div>
+			<div v-for="(value, key, index) in item" v-if="index < 5">
+				{{index}}-{{key}}-{{value}}
+			</div>
+		</li>
+	</template>
+</ul>
+<script src="js/vue.js"></script>
+<script src="js/jquery.js"></script>
+<script>
+	var app = new Vue({
+		el: '#example-2',
+		data: {
+			list: [
+				{
+					"Ftrack_id": 202555460,
+					ok: true,
+					"Ftrack_name": "爱与愁",
+					"Fsinger_id": "6028",
+					"Fsinger_name": "A-Lin",
+					"Fvid": "k0023pzu9py",
+					"Fh5_photo_url": "//y.gtimg.cn/music/common/upload/t_tv_songShow_songs/103705.jpg",
+					"Fsong_module": null,
+					"Fsinger_id2": "0",
+					"Fsinger_name2": "",
+					"Fsinger_id3": "0",
+					"Fsinger_name3": "",
+					"Fsinger_id4": "0",
+					"Fsinger_name4": "",
+					"Fsinger_mid": "003ArN8Z0WpjTz",
+					"Fsinger_mid2": "",
+					"Fsinger_mid3": "",
+					"Fsinger_mid4": "",
+					"Fpc_photo_url": "//y.gtimg.cn/music/common/upload/t_tv_songShow_songs/103705.jpg",
+					"Ftrack_mid": "004LS4al0k0syd",
+					"Ftrack_mid2": "004LS4al0k0syd",
+					"vote": 68897
+				},
+				{
+					"Ftrack_id": 202555461,
+					ok: true,
+					"Ftrack_name": "爱的可能",
+					"Fsinger_id": "6028",
+					"Fsinger_name": "A-Lin",
+					"Fvid": "g0023fgeszg",
+					"Fh5_photo_url": "//y.gtimg.cn/music/common/upload/t_tv_songShow_songs/103706.jpg",
+					"Fsong_module": null,
+					"Fsinger_id2": "0",
+					"Fsinger_name2": "",
+					"Fsinger_id3": "0",
+					"Fsinger_name3": "",
+					"Fsinger_id4": "0",
+					"Fsinger_name4": "",
+					"Fsinger_mid": "003ArN8Z0WpjTz",
+					"Fsinger_mid2": "",
+					"Fsinger_mid3": "",
+					"Fsinger_mid4": "",
+					"Fpc_photo_url": "//y.gtimg.cn/music/common/upload/t_tv_songShow_songs/103706.jpg",
+					"Ftrack_mid": "0005aGEk2Fmlcx",
+					"Ftrack_mid2": "0005aGEk2Fmlcx",
+					"vote": 30362
+				},
+				{
+					"Ftrack_id": 202555462,
+					ok: true,
+					"Ftrack_name": "爱的可能",
+					"Fsinger_id": "186",
+					"Fsinger_name": "叶倩文",
+					"Fvid": "a0023l42yus",
+					"Fh5_photo_url": "//y.gtimg.cn/music/common/upload/t_tv_songShow_songs/103708.jpg",
+					"Fsong_module": null,
+					"Fsinger_id2": "6028",
+					"Fsinger_name2": "A-Lin",
+					"Fsinger_id3": "0",
+					"Fsinger_name3": "",
+					"Fsinger_id4": "0",
+					"Fsinger_name4": "",
+					"Fsinger_mid": "00128nnX2r4UFX",
+					"Fsinger_mid2": "003ArN8Z0WpjTz",
+					"Fsinger_mid3": "",
+					"Fsinger_mid4": "",
+					"Fpc_photo_url": "//y.gtimg.cn/music/common/upload/t_tv_songShow_songs/103708.jpg",
+					"Ftrack_mid": "003XFpo918eiSj",
+					"Ftrack_mid2": "003XFpo918eiSj",
+					"vote": 17955
+				},
+				{
+					"Ftrack_id": 202555463,
+					ok: true,
+					"Ftrack_name": "谢谢你，冬的雪",
+					"Fsinger_id": "11447",
+					"Fsinger_name": "王铮亮",
+					"Fvid": "n0023wqhnmx",
+					"Fh5_photo_url": "//y.gtimg.cn/music/common/upload/t_tv_songShow_songs/103709.jpg",
+					"Fsong_module": null,
+					"Fsinger_id2": "0",
+					"Fsinger_name2": "",
+					"Fsinger_id3": "0",
+					"Fsinger_name3": "",
+					"Fsinger_id4": "0",
+					"Fsinger_name4": "",
+					"Fsinger_mid": "001iaSfi07zuSE",
+					"Fsinger_mid2": "",
+					"Fsinger_mid3": "",
+					"Fsinger_mid4": "",
+					"Fpc_photo_url": "//y.gtimg.cn/music/common/upload/t_tv_songShow_songs/103709.jpg",
+					"Ftrack_mid": "002Hhxck3Hrs0L",
+					"Ftrack_mid2": "002Hhxck3Hrs0L",
+					"vote": 30822
+				},
+				{
+					"Ftrack_id": 202555464,
+					ok: true,
+					"Ftrack_name": "谢谢你，冬的雪",
+					"Fsinger_id": "172",
+					"Fsinger_name": "巫启贤",
+					"Fvid": "i0023jsidzq",
+					"Fh5_photo_url": "//y.gtimg.cn/music/common/upload/t_tv_songShow_songs/103710.jpg",
+					"Fsong_module": null,
+					"Fsinger_id2": "11447",
+					"Fsinger_name2": "王铮亮",
+					"Fsinger_id3": "0",
+					"Fsinger_name3": "",
+					"Fsinger_id4": "0",
+					"Fsinger_name4": "",
+					"Fsinger_mid": "003EL2So3NxH6K",
+					"Fsinger_mid2": "001iaSfi07zuSE",
+					"Fsinger_mid3": "",
+					"Fsinger_mid4": "",
+					"Fpc_photo_url": "//y.gtimg.cn/music/common/upload/t_tv_songShow_songs/103710.jpg",
+					"Ftrack_mid": "000nROnR0eYzxF",
+					"Ftrack_mid2": "000nROnR0eYzxF",
+					"vote": 17520
+				},
+				{
+					"Ftrack_id": 202555465,
+					ok: true,
+					"Ftrack_name": "曾经",
+					"Fsinger_id": "7131",
+					"Fsinger_name": "黄雅莉",
+					"Fvid": "f00234m4j64",
+					"Fh5_photo_url": "//y.gtimg.cn/music/common/upload/t_tv_songShow_songs/103711.jpg",
+					"Fsong_module": null,
+					"Fsinger_id2": "0",
+					"Fsinger_name2": "",
+					"Fsinger_id3": "0",
+					"Fsinger_name3": "",
+					"Fsinger_id4": "0",
+					"Fsinger_name4": "",
+					"Fsinger_mid": "000tBtTl22ucCg",
+					"Fsinger_mid2": "",
+					"Fsinger_mid3": "",
+					"Fsinger_mid4": "",
+					"Fpc_photo_url": "//y.gtimg.cn/music/common/upload/t_tv_songShow_songs/103711.jpg",
+					"Ftrack_mid": "003lIVWq1k5Wy3",
+					"Ftrack_mid2": "003lIVWq1k5Wy3",
+					"vote": 72309
+				}
+			]
+		},
+		methods: {
+
+		}
+	})
+</script>
+</body>
+</html>

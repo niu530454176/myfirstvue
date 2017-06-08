@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+<div id="example">
+	<ul>
+		<li v-for="n in arr">{{n}}</li>
+	</ul>
+	<button @click="removeTao">过滤所有带桃的</button>
+	<button @click="addShuCai">把蔬菜加入</button>
+	<button @click="changeIndexToCaoMei(2)">把香蕉换成草莓</button>
+</div>
+<script src="js/vue.js"></script>
+<script>
+	var example = new Vue({
+		el: '#example',
+		data: {
+			arr: ['苹果', '桔子', '香蕉', '桃', '梨', '哈密瓜', '猕猴桃'],
+			shucai: ['黄瓜', '西红柿', '芹菜']
+		},
+		methods: {
+			removeTao: function () {
+				var _this = this;
+				_this.arr = _this.arr.filter(function (item) {
+					return item.indexOf('桃') == -1;
+				});
+			},
+			addShuCai: function () {
+				var _this = this;
+				_this.arr = _this.arr.concat(_this.shucai)
+			},
+			changeIndexToCaoMei: function (index) {
+				var _this = this;
+				Vue.set(_this.arr, index, '草莓')
+			}
+		}
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<!--<div id="example">
+	&lt;!&ndash;<input type="text" v-model="str">
+	<a v-bind:href="str| capitalize">{{str| capitalize}}</a>
+	<input type="text" v-model="money">
+	<span>{{money| makeMoney}}</span>&ndash;&gt;
+	<p>reverseMessage：{{ reverseMessage}}</p>
+</div>
+<div id="demo">{{fullName}}</div>-->
+<!--<div id="demo">
+	<div>半径: <input type="text" v-model="r"></div>
+	<input type="text" v-model="area">
+</div>-->
+<div id="watch-example">
+	<p>
+		Ask a yes/no question:<input v-model="question">
+		<img v-if="image" :src="image" alt="">
+	</p>
+	<p>{{ answer }}</p>
+</div>
+<script src="js/vue.js"></script>
+<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+<script>
+	var watchExampleVM = new Vue({
+		el: '#watch-example',
+		data: {
+			question: '',
+			answer: 'I cannot give you an answer until you ask a question!',
+			image: ''
+		},
+		watch: {
+			// 如果 question 发生改变，这个函数就会运行
+			question: function (newQuestion) {
+				this.answer = 'Waiting for you to stop typing...'
+				this.getAnswer()
+				this.image = 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1773889944,3648425637&fm=117&gp=0.jpg'
+			}
+		},
+		methods: {
+			// _.debounce 是一个通过 lodash 限制操作频率的函数。
+			// 在这个例子中，我们希望限制访问yesno.wtf/api的频率
+			// ajax请求直到用户输入完毕才会发出
+			// 学习更多关于 _.debounce function (and its cousin
+			// _.throttle), 参考: https://lodash.com/docs#debounce
+			getAnswer: _.debounce(
+				function () {
+					var vm = this
+					if (this.question.indexOf('?') === -1) {
+						vm.answer = 'Questions usually contain a question mark. ;-)'
+						return
+					}
+					vm.answer = 'Thinking...'
+					axios.get('https://yesno.wtf/api')
+						.then(function (response) {
+							vm.answer = _.capitalize(response.data.answer)
+							vm.image = response.data.image
+						})
+						.catch(function (error) {
+							vm.answer = 'Error! Could not reach the API. ' + error
+							vm.image = response.data.image
+						})
+				},
+				// 这是我们为用户停止输入等待的毫秒数
+				500
+			)
+		}
+	})
+	/*var vm = new Vue({
+		el: '#demo',
+		data: {
+			r: 5
+		},
+		computed: {
+			area: function () {
+				return Math.PI* this.r * this.r;
+			}
+		}
+	})*/
+	/*var vm = new Vue({
+		el: "#example",
+		data: {
+			/!*str: "http://baidu.com",
+			money: 123456*!/
+			message: 'hello'
+		},
+		/!*filters: {
+			capitalize: function (value) {
+				return value.toUpperCase();
+			},
+			makeMoney: function (money) {
+				return money.toString().replace(/^(-?)(\d+)((\.\d+)?)$/, function (s, s1, s2, s3) {
+					return s1 + s2.replace(/\d{1,3}(?=(\d{3})+$)/g, "$&,") + s3;
+				});
+			}
+		}*!/
+		computed: {
+			reverseMessage: function () {
+				return this.message.split('').reverse().join('');
+			}
+		}
+	})*/
+	/*var vm = new Vue({
+		el: '#demo',
+		data: {
+			firstName: 'Foo',
+			lastName: 'Bar'
+		},
+		computed: {
+			fullName: function () {
+				return this.firstName + ' ' + this.lastName
+			}
+		}
+	})*/
+</script>
+</body>
+</html>
